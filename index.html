@@ -459,6 +459,28 @@
             filter: drop-shadow(0 0 10px rgba(14, 165, 233, 0.6));
         }
 
+        /* Special Python icon styling */
+        .tech-icon-item.python-icon i {
+            background: linear-gradient(135deg, #FFD43B 0%, #306998 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 15px rgba(255, 212, 59, 0.7));
+        }
+
+        .tech-icon-item.python-icon:hover i {
+            filter: drop-shadow(0 0 25px rgba(255, 212, 59, 0.9));
+        }
+
+        .tech-icon-item.python-icon {
+            border-color: rgba(255, 212, 59, 0.3);
+        }
+
+        .tech-icon-item.python-icon:hover {
+            border-color: #FFD43B;
+            box-shadow: 0 20px 40px rgba(255, 212, 59, 0.5);
+        }
+
         /* Skills */
         .skills-grid {
             display: grid;
@@ -1090,7 +1112,7 @@
             <div class="tech-icon-item" title="Jenkins"><i class="fab fa-jenkins"></i></div>
             <div class="tech-icon-item" title="GitLab"><i class="fab fa-gitlab"></i></div>
             <div class="tech-icon-item" title="GitHub"><i class="fab fa-github"></i></div>
-            <div class="tech-icon-item" title="Python"><i class="fab fa-python"></i></div>
+            <div class="tech-icon-item python-icon" title="Python"><i class="fab fa-python"></i></div>
             <div class="tech-icon-item" title="Linux"><i class="fab fa-linux"></i></div>
             <div class="tech-icon-item" title="Terraform"><i class="fas fa-cube"></i></div>
             <div class="tech-icon-item" title="Monitoring"><i class="fas fa-chart-line"></i></div>
@@ -1397,7 +1419,7 @@
                     <span class="tech-tag"><i class="fas fa-dharmachakra"></i> Kubernetes</span>
                     <span class="tech-tag"><i class="fab fa-node-js"></i> Node.js</span>
                     <span class="tech-tag"><i class="fab fa-java"></i> Spring Boot</span>
-                    <span class="tech-tag"><i class="fab fa-java"></i> Python</span>
+                    <span class="tech-tag"><i class="fab fa-python"></i> Python</span>
                     <span class="tech-tag"><i class="fab fa-vuejs"></i> Vue.js 3</span>
                 </div>
                 <ul>
