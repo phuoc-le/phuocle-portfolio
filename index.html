@@ -1,0 +1,1676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phuoc Le - Senior DevOps Engineer Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0ea5e9;
+            --secondary: #8b5cf6;
+            --accent: #ec4899;
+            --dark: #0f172a;
+            --darker: #020617;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-alt: linear-gradient(135deg, #0ea5e9 0%, #8b5cf6 50%, #ec4899 100%);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--darker);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--gradient-alt);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-alt);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--darker);
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(14, 165, 233, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .hero-content {
+            text-align: center;
+            color: var(--light);
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            padding: 2rem;
+        }
+
+        .hero-avatar {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: var(--gradient-alt);
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: white;
+            box-shadow: 0 20px 60px rgba(14, 165, 233, 0.6),
+            0 0 100px rgba(14, 165, 233, 0.3),
+            inset 0 0 30px rgba(255, 255, 255, 0.1);
+            animation: float 3s ease-in-out infinite;
+            position: relative;
+        }
+
+        .hero-avatar::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: var(--gradient-alt);
+            opacity: 0.5;
+            filter: blur(20px);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: var(--gradient-alt);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero .title {
+            font-size: 1.5rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero .tagline {
+            font-size: 1.2rem;
+            color: var(--light);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .hero-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient-alt);
+            color: white;
+            box-shadow: 0 10px 30px rgba(14, 165, 233, 0.4),
+            0 0 20px rgba(14, 165, 233, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 50px rgba(14, 165, 233, 0.6),
+            0 0 40px rgba(14, 165, 233, 0.4);
+        }
+
+        .btn span, .btn i {
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--light);
+            border: 2px solid var(--primary);
+            box-shadow: 0 0 20px rgba(14, 165, 233, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-secondary::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: var(--primary);
+            transform: translate(-50%, -50%);
+            transition: width 0.5s, height 0.5s;
+        }
+
+        .btn-secondary:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-secondary:hover {
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 40px rgba(14, 165, 233, 0.5);
+        }
+
+        .btn-secondary span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: var(--dark);
+            padding: 4rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stats-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            color: var(--light);
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: var(--gradient-alt);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            filter: drop-shadow(0 0 20px rgba(14, 165, 233, 0.3));
+        }
+
+        .stat-item i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: var(--gradient-alt);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 15px rgba(14, 165, 233, 0.4));
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 5rem 2rem;
+            background: var(--darker);
+        }
+
+        section:nth-child(even) {
+            background: var(--dark);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--light);
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--gradient-alt);
+            border-radius: 2px;
+        }
+
+        /* Summary */
+        .summary {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            line-height: 2;
+            color: var(--gray);
+            background: rgba(15, 23, 42, 0.5);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(14, 165, 233, 0.2);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Tech Icons Showcase */
+        .tech-showcase {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin: 3rem 0;
+            padding: 3rem 0;
+        }
+
+        .tech-icon-item {
+            width: 100px;
+            height: 100px;
+            background: rgba(15, 23, 42, 0.5);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid rgba(14, 165, 233, 0.2);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tech-icon-item::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, var(--primary), transparent);
+            animation: rotate 3s linear infinite;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tech-icon-item:hover::before {
+            opacity: 0.4;
+        }
+
+        .tech-icon-item:hover {
+            transform: translateY(-10px) scale(1.1);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(14, 165, 233, 0.5);
+        }
+
+        .tech-icon-item i {
+            font-size: 3rem;
+            background: var(--gradient-alt);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            z-index: 1;
+            filter: drop-shadow(0 0 10px rgba(14, 165, 233, 0.6));
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .skill-category {
+            background: rgba(15, 23, 42, 0.5);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(14, 165, 233, 0.2);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-alt);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .skill-category:hover::before {
+            transform: scaleX(1);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 60px rgba(14, 165, 233, 0.3);
+        }
+
+        .skill-category h3 {
+            color: var(--light);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .skill-category h3 i {
+            font-size: 1.8rem;
+            background: var(--gradient-alt);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .skill-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-name {
+            color: var(--light);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: rgba(100, 116, 139, 0.3);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: var(--gradient-alt);
+            border-radius: 10px;
+            transition: width 1.5s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-progress::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid rgba(14, 165, 233, 0.2);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-alt);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .project-card:hover::before {
+            opacity: 0.05;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 60px rgba(14, 165, 233, 0.3);
+        }
+
+        .project-card h3 {
+            color: var(--light);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .project-card h3 i {
+            font-size: 1.6rem;
+            background: var(--gradient-alt);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 10px rgba(14, 165, 233, 0.5));
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin: 1.5rem 0;
+        }
+
+        .tech-tag {
+            background: rgba(15, 23, 42, 0.8);
+            color: var(--light);
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 2px solid rgba(14, 165, 233, 0.4);
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 15px rgba(14, 165, 233, 0.2);
+        }
+
+        .tech-tag i {
+            font-size: 1.1rem;
+        }
+
+        .tech-tag:hover {
+            background: var(--gradient-alt);
+            color: white;
+            transform: scale(1.08) translateY(-2px);
+            border-color: transparent;
+            box-shadow: 0 8px 25px rgba(14, 165, 233, 0.5);
+        }
+
+        .project-card ul {
+            list-style: none;
+            margin-top: 1.5rem;
+            position: relative;
+        }
+
+        .project-card li {
+            color: var(--gray);
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+            line-height: 1.8;
+        }
+
+        .project-card li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 3rem auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: var(--gradient-alt);
+        }
+
+        .timeline-item {
+            margin-bottom: 4rem;
+            position: relative;
+            width: calc(50% - 40px);
+        }
+
+        .timeline-item:nth-child(odd) {
+            margin-left: auto;
+            padding-left: 40px;
+        }
+
+        .timeline-item:nth-child(even) {
+            text-align: right;
+            padding-right: 40px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--gradient-alt);
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(14, 165, 233, 0.6);
+            top: 0;
+        }
+
+        .timeline-item:nth-child(odd)::before {
+            left: -10px;
+        }
+
+        .timeline-item:nth-child(even)::before {
+            right: -10px;
+        }
+
+        .timeline-content {
+            background: rgba(15, 23, 42, 0.5);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(14, 165, 233, 0.2);
+            transition: all 0.3s;
+        }
+
+        .timeline-content:hover {
+            border-color: var(--primary);
+            box-shadow: 0 10px 40px rgba(14, 165, 233, 0.3);
+            transform: scale(1.02);
+        }
+
+        .timeline-content h3 {
+            color: var(--light);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content .company {
+            color: var(--primary);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content .duration {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .timeline-content ul {
+            list-style: none;
+            text-align: left;
+        }
+
+        .timeline-content li {
+            color: var(--gray);
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .timeline-content li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+
+        /* Certifications */
+        .certifications {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .cert-item {
+            background: rgba(15, 23, 42, 0.5);
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(14, 165, 233, 0.2);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cert-item::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, var(--primary), transparent);
+            animation: rotate 4s linear infinite;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .cert-item:hover::before {
+            opacity: 0.3;
+        }
+
+        .cert-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(14, 165, 233, 0.4);
+            border-color: var(--primary);
+        }
+
+        .cert-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: var(--gradient-alt);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 20px rgba(14, 165, 233, 0.6));
+            position: relative;
+            z-index: 1;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                filter: drop-shadow(0 0 20px rgba(14, 165, 233, 0.6));
+            }
+            50% {
+                transform: scale(1.05);
+                filter: drop-shadow(0 0 30px rgba(14, 165, 233, 0.8));
+            }
+        }
+
+        .cert-item h3 {
+            color: var(--light);
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+            position: relative;
+        }
+
+        .cert-item p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--darker);
+            color: var(--gray);
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            color: var(--gray);
+            font-size: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* Mobile Menu */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--light);
+            transition: all 0.3s;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .title {
+                font-size: 1.2rem;
+            }
+
+            .hero-avatar {
+                width: 120px;
+                height: 120px;
+                font-size: 3rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 60px;
+                text-align: left;
+            }
+
+            .timeline-item:nth-child(even) {
+                padding-left: 60px;
+                padding-right: 0;
+                text-align: left;
+            }
+
+            .timeline-item::before {
+                left: 11px;
+            }
+
+            .timeline-item:nth-child(even)::before {
+                left: 11px;
+                right: auto;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-alt);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(14, 165, 233, 0.4);
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(14, 165, 233, 0.6);
+        }
+    </style>
+</head>
+<body>
+<!-- Navigation -->
+<nav>
+    <div class="container">
+        <div class="logo">PL</div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#certifications">Education</a></li>
+        </ul>
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="home" class="hero">
+    <div class="hero-content">
+        <div class="hero-avatar">
+            <i class="fas fa-user-tie"></i>
+        </div>
+        <h1>Phuoc Le</h1>
+        <div class="title">Senior DevOps Engineer | Cloud Architect | Solution Architect</div>
+        <p class="tagline">
+            Transforming infrastructure into scalable, reliable, and secure cloud solutions.
+            Passionate about automation, continuous improvement, and building systems that empower teams.
+        </p>
+        <div class="hero-links">
+            <a href="mailto:huuphuoc2791@gmail.com" class="btn btn-primary">
+                <i class="fas fa-envelope"></i> Get In Touch
+            </a>
+            <a href="#projects" class="btn btn-secondary">
+                <span><i class="fas fa-rocket"></i> View My Work</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<div class="stats">
+    <div class="stats-grid">
+        <div class="stat-item">
+            <i class="fas fa-briefcase"></i>
+            <div class="stat-number">12+</div>
+            <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat-item">
+            <i class="fas fa-server"></i>
+            <div class="stat-number">15+</div>
+            <div class="stat-label">Major Projects</div>
+        </div>
+        <div class="stat-item">
+            <i class="fas fa-check-circle"></i>
+            <div class="stat-number">99.99%</div>
+            <div class="stat-label">Uptime SLA</div>
+        </div>
+        <div class="stat-item">
+            <i class="fas fa-rocket"></i>
+            <div class="stat-number">7</div>
+            <div class="stat-label">Companies Served</div>
+        </div>
+    </div>
+</div>
+
+<!-- About Section -->
+<section id="about">
+    <div class="container">
+        <h2>About Me</h2>
+        <div class="summary">
+            Results-driven Senior DevOps Engineer with 12+ years of progressive experience spanning from Backend Development to Full-Stack, and specializing in DevOps and Multi-Cloud Architecture. Currently leading DevOps initiatives at HerondLabs, managing complex multi-cloud infrastructure across GCP, AWS, and Azure. Expertise in designing, deploying, and managing scalable infrastructure with hands-on experience in Kubernetes, Terraform/Tofu, and modern CI/CD automation. Proven track record in leading DevOps teams, implementing infrastructure as code, optimizing system performance, and delivering high-availability solutions for blockchain, gaming, data analytics, and enterprise applications. Strong background in both product development and outsourcing environments, with experience across startup, mid-size, and enterprise organizations.
+        </div>
+
+        <!-- Tech Icons Showcase -->
+        <div class="tech-showcase">
+            <div class="tech-icon-item" title="AWS"><i class="fab fa-aws"></i></div>
+            <div class="tech-icon-item" title="Docker"><i class="fab fa-docker"></i></div>
+            <div class="tech-icon-item" title="Kubernetes"><i class="fas fa-dharmachakra"></i></div>
+            <div class="tech-icon-item" title="Jenkins"><i class="fab fa-jenkins"></i></div>
+            <div class="tech-icon-item" title="GitLab"><i class="fab fa-gitlab"></i></div>
+            <div class="tech-icon-item" title="GitHub"><i class="fab fa-github"></i></div>
+            <div class="tech-icon-item" title="Python"><i class="fab fa-python"></i></div>
+            <div class="tech-icon-item" title="Linux"><i class="fab fa-linux"></i></div>
+            <div class="tech-icon-item" title="Terraform"><i class="fas fa-cube"></i></div>
+            <div class="tech-icon-item" title="Monitoring"><i class="fas fa-chart-line"></i></div>
+            <div class="tech-icon-item" title="Microsoft Azure"><i class="fab fa-microsoft"></i></div>
+            <div class="tech-icon-item" title="Google Cloud"><i class="fab fa-google"></i></div>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills">
+    <div class="container">
+        <h2>Technical Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3><i class="fas fa-cloud"></i> Multi-Cloud Infrastructure</h3>
+                <div class="skill-item">
+                    <div class="skill-name"><span>Google Cloud Platform (GCP)</span><span>95%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 95%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name"><span>Amazon Web Services (AWS)</span><span>93%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 93%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name"><span>Microsoft Azure</span><span>90%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name"><span>Terraform / Tofu</span><span>95%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 95%"></div></div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3><i class="fas fa-code-branch"></i> CI/CD & Automation</h3>
+                <div class="skill-item">
+                    <div class="skill-name"><span>GitHub Actions</span><span>95%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 95%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name"><span>GitLab CI / Jenkins</span><span>93%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 93%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name"><span>ArgoCD / GitOps</span><span>92%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 92%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name"><span>Ansible / Chef / Puppet</span><span>90%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3><i class="fab fa-docker"></i> Containers & Orchestration</h3>
+                <div class="skill-item">
+                    <div class="skill-name"><span>Kubernetes (GKE, EKS, AKS)</span><span>95%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 95%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name"><span>Docker / Buildah</span><span>95%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 95%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name"><span>Helm / Kustomize</span><span>92%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 92%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name"><span>Linkerd / Istio (Service Mesh)</span><span>88%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 88%"></div></div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3><i class="fas fa-chart-line"></i> Monitoring & Observability</h3>
+                <div class="skill-item">
+                    <div class="skill-name"><span>Prometheus / Grafana</span><span>95%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 95%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name"><span>Lens / Rancher</span><span>90%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name"><span>CloudWatch / Stackdriver</span><span>92%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 92%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name"><span>ELK / OpenSearch</span><span>90%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3><i class="fas fa-database"></i> Databases & Data</h3>
+                <div class="skill-item">
+                    <div class="skill-name"><span>PostgreSQL / MySQL / SQL Server</span><span>93%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 93%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name"><span>MongoDB / DynamoDB</span><span>90%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name"><span>Redis / Hazelcast / Memorystore</span><span>92%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 92%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name"><span>BigQuery / Looker</span><span>88%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 88%"></div></div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3><i class="fas fa-exchange-alt"></i> Message Queues & Events</h3>
+                <div class="skill-item">
+                    <div class="skill-name"><span>RabbitMQ / ActiveMQ</span><span>90%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name"><span>Kafka / MSK</span><span>88%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 88%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name"><span>Google Pub/Sub</span><span>90%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name"><span>AWS SQS / SNS / SES</span><span>88%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 88%"></div></div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3><i class="fas fa-code"></i> Programming & Backend</h3>
+                <div class="skill-item">
+                    <div class="skill-name"><span>Node.js (Express, NestJS, Hapi)</span><span>95%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 95%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name"><span>Python / Django</span><span>92%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 92%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name"><span>Java / Spring Boot</span><span>90%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name"><span>Golang / .NET / PHP</span><span>85%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3><i class="fas fa-laptop-code"></i> Frontend & Mobile</h3>
+                <div class="skill-item">
+                    <div class="skill-name"><span>Vue.js (2 & 3)</span><span>90%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name"><span>React.js</span><span>88%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 88%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name"><span>React Native</span><span>85%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name"><span>Firebase / GCS</span><span>88%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 88%"></div></div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3><i class="fab fa-ethereum"></i> Blockchain & Web3</h3>
+                <div class="skill-item">
+                    <div class="skill-name"><span>Solidity / Smart Contracts</span><span>85%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name"><span>Web3.js / Ethers.js</span><span>83%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 83%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name"><span>NFT / DeFi Protocols</span><span>80%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name"><span>Blockchain Node Management</span><span>85%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3><i class="fas fa-network-wired"></i> Networking & Security</h3>
+                <div class="skill-item">
+                    <div class="skill-name"><span>VPN (Pritunl, OpenVPN)</span><span>90%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name"><span>Fortigate Firewall</span><span>88%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 88%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name"><span>IAM / RBAC / Secrets Management</span><span>93%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 93%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name"><span>CCNA / Network Design</span><span>85%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3><i class="fas fa-server"></i> On-Premise & Virtualization</h3>
+                <div class="skill-item">
+                    <div class="skill-name"><span>VMware ESXi / vSphere</span><span>90%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name"><span>Linux (Ubuntu, CentOS, RHEL)</span><span>95%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 95%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name"><span>Bash Scripting</span><span>95%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 95%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name"><span>Nginx / Apache / HAProxy</span><span>90%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3><i class="fas fa-bolt"></i> Serverless & Functions</h3>
+                <div class="skill-item">
+                    <div class="skill-name"><span>AWS Lambda</span><span>92%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 92%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name"><span>Google Cloud Run / Functions</span><span>90%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name"><span>AWS ECS / Fargate</span><span>88%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 88%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name"><span>CloudFront / CDN</span><span>85%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects">
+    <div class="container">
+        <h2>Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3><i class="fas fa-wallet"></i> Herond Browser - Web3 Blockchain Wallet</h3>
+                <div class="tech-stack">
+                    <span class="tech-tag"><i class="fab fa-google"></i> GCP</span>
+                    <span class="tech-tag"><i class="fab fa-aws"></i> AWS</span>
+                    <span class="tech-tag"><i class="fab fa-microsoft"></i> Azure</span>
+                    <span class="tech-tag"><i class="fas fa-cube"></i> Terraform/Tofu</span>
+                    <span class="tech-tag"><i class="fas fa-dharmachakra"></i> Kubernetes</span>
+                    <span class="tech-tag"><i class="fab fa-github"></i> GitHub Actions</span>
+                    <span class="tech-tag"><i class="fab fa-ethereum"></i> Blockchain</span>
+                </div>
+                <ul>
+                    <li>Built infrastructure for Web3 browser with integrated blockchain wallet functionality</li>
+                    <li>Architected and deployed multi-cloud infrastructure (GCP 40%, AWS 30%, Azure 30%) using Terraform/Tofu</li>
+                    <li>Managed production Kubernetes clusters across AKS, GKE, and EKS with unified monitoring</li>
+                    <li>Implemented data analytics infrastructure with BigQuery, Looker, and Cloud SQL for blockchain analytics</li>
+                    <li>Built event-driven architecture using RabbitMQ, PubSub, and serverless functions (Lambda, Cloud Run)</li>
+                    <li>Established CI/CD pipelines with GitHub Actions for .NET, Node.js, React.js, and Python stacks</li>
+                    <li>Deployed comprehensive monitoring with Grafana, Prometheus, and Lens across all cloud providers</li>
+                </ul>
+            </div>
+
+            <div class="project-card">
+                <h3><i class="fas fa-briefcase"></i> Bizhiway - Enterprise Platform</h3>
+                <div class="tech-stack">
+                    <span class="tech-tag"><i class="fab fa-aws"></i> AWS</span>
+                    <span class="tech-tag"><i class="fas fa-cube"></i> Terraform</span>
+                    <span class="tech-tag"><i class="fas fa-dharmachakra"></i> Kubernetes</span>
+                    <span class="tech-tag"><i class="fab fa-node-js"></i> Node.js</span>
+                    <span class="tech-tag"><i class="fab fa-java"></i> Spring Boot</span>
+                    <span class="tech-tag"><i class="fab fa-vuejs"></i> Vue.js 3</span>
+                </div>
+                <ul>
+                    <li>Designed and deployed Kubernetes clusters on on-premise using Terraform and Ansible</li>
+                    <li>Migrated infrastructure to AWS for staging and production with IaC automation</li>
+                    <li>Implemented comprehensive monitoring with Prometheus, Grafana, and CloudWatch</li>
+                    <li>Led Vue.js upgrade from v2 to v3 improving performance and maintainability</li>
+                    <li>Configured Qlik Server integration and managed VMware ESXi infrastructure</li>
+                </ul>
+            </div>
+
+            <div class="project-card">
+                <h3><i class="fas fa-gamepad"></i> REALREALM & ORBITAU - Blockchain Gaming</h3>
+                <div class="tech-stack">
+                    <span class="tech-tag"><i class="fab fa-aws"></i> AWS</span>
+                    <span class="tech-tag"><i class="fas fa-cube"></i> Terraform</span>
+                    <span class="tech-tag"><i class="fab fa-ethereum"></i> Solidity</span>
+                    <span class="tech-tag"><i class="fab fa-react"></i> React.js</span>
+                    <span class="tech-tag"><i class="fab fa-node-js"></i> NestJS</span>
+                    <span class="tech-tag"><i class="fab fa-golang"></i> Golang</span>
+                </div>
+                <ul>
+                    <li>Architected infrastructure following AWS Well-Architected Framework for gaming platform</li>
+                    <li>Deployed and monitored Blockchain Full Nodes for Web3 integration</li>
+                    <li>Wrote and deployed NFT smart contracts using Solidity and Web3</li>
+                    <li>Set up game services using AWS ECS with automated CI/CD via Jenkins</li>
+                    <li>Managed MongoDB Atlas, OpenSearch, and ElastiCache-Redis clusters</li>
+                </ul>
+            </div>
+
+            <div class="project-card">
+                <h3><i class="fas fa-gift"></i> TapTap - Core Loyalty & Points Platform</h3>
+                <div class="tech-stack">
+                    <span class="tech-tag"><i class="fab fa-aws"></i> AWS</span>
+                    <span class="tech-tag"><i class="fab fa-google"></i> GCP</span>
+                    <span class="tech-tag"><i class="fas fa-dharmachakra"></i> Kubernetes</span>
+                    <span class="tech-tag"><i class="fab fa-python"></i> Python</span>
+                    <span class="tech-tag"><i class="fab fa-react"></i> React.js</span>
+                    <span class="tech-tag"><i class="fab fa-node-js"></i> Node.js</span>
+                </div>
+                <ul>
+                    <li>Built infrastructure for loyalty rewards and points accumulation application</li>
+                    <li>Deployed microservices architecture using Kubernetes for high-traffic platform</li>
+                    <li>Configured VPN (Pritunl) infrastructure for secure remote work access</li>
+                    <li>Implemented CI/CD pipelines for iOS and Android apps using GitLab CI</li>
+                    <li>Developed ETL pipelines using AWS Lambda for rewards data processing and analytics</li>
+                    <li>Managed PostgreSQL, Elasticsearch, MongoDB, and Redis clusters for loyalty transaction data</li>
+                </ul>
+            </div>
+
+            <div class="project-card">
+                <h3><i class="fas fa-wallet"></i> VWallet - Blockchain Wallet App</h3>
+                <div class="tech-stack">
+                    <span class="tech-tag"><i class="fab fa-google"></i> GCP</span>
+                    <span class="tech-tag"><i class="fab fa-ethereum"></i> Blockchain</span>
+                    <span class="tech-tag"><i class="fab fa-react"></i> React Native</span>
+                    <span class="tech-tag"><i class="fab fa-node-js"></i> Node.js</span>
+                    <span class="tech-tag"><i class="fab fa-golang"></i> Golang</span>
+                    <span class="tech-tag"><i class="fab fa-php"></i> Laravel</span>
+                </div>
+                <ul>
+                    <li>Developed full-stack blockchain wallet application with React Native for iOS and Android</li>
+                    <li>Deployed infrastructure on GCP using Kubernetes (GKE) and Helm charts</li>
+                    <li>Built backend services with Node.js, Golang, and PHP (Laravel)</li>
+                    <li>Implemented monitoring and alerting using Grafana and Prometheus</li>
+                    <li>Managed MongoDB Atlas, Google SQL (MySQL), and Firebase integration</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Experience Section -->
+<section id="experience">
+    <div class="container">
+        <h2>Professional Experience</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Senior DevOps / Lead DevOps</h3>
+                    <div class="company">HerondLabs Company</div>
+                    <div class="duration">March 2025 - Present</div>
+                    <ul>
+                        <li>Lead DevOps initiatives across multi-cloud environment (GCP 40%, AWS 30%, Azure 30%)</li>
+                        <li>Design and implement CI/CD pipelines for multi-platform browser builds (Windows, Mac, iOS, Android) using GitHub Actions</li>
+                        <li>Successfully executed complete cloud migration from Azure to GCP infrastructure with zero downtime</li>
+                        <li>Led database migration project from MS SQL Server to PostgreSQL, including schema conversion and data migration strategies</li>
+                        <li>Implement security hardening across all infrastructure layers including network security, secrets management, and compliance controls</li>
+                        <li>Design and deploy cloud infrastructure using Terraform/Tofu and Ansible for Web3 browser applications</li>
+                        <li>Manage Kubernetes clusters on GKE and EKS with production-grade configurations and auto-scaling</li>
+                        <li>Implement comprehensive data infrastructure with BigQuery, Looker, and Cloud SQL (PostgreSQL)</li>
+                        <li>Configure event-driven architecture using RabbitMQ, PubSub, and AWS SES for real-time processing</li>
+                        <li>Establish monitoring and observability solutions using Grafana, Prometheus, and Lens for multi-cloud environments</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Senior DevOps / Lead DevOps</h3>
+                    <div class="company">Jienie Lab Asia Company</div>
+                    <div class="duration">October 2022 - March 2025</div>
+                    <ul>
+                        <li>Designed, deployed, and managed Kubernetes clusters using Terraform and Ansible for on-premise and AWS environments</li>
+                        <li>Implemented comprehensive monitoring with Prometheus, Alertmanager, Grafana, and CloudWatch</li>
+                        <li>Led the upgrade of Vue.js (v2 to v3) and Node.js for enhanced application performance</li>
+                        <li>Configured and maintained Qlik Server and Smart Project solutions</li>
+                        <li>Implemented AWS security controls and provided solution architecture support</li>
+                        <li>Managed infrastructure using Fortigate Firewall and VMware ESXi-vSphere</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Senior DevOps / FullStack</h3>
+                    <div class="company">F6 Galaxy Company (Blockchain)</div>
+                    <div class="duration">August 2021 - October 2022</div>
+                    <ul>
+                        <li>Architected and deployed blockchain infrastructure using Terraform, Ansible, and CloudFormation</li>
+                        <li>Deployed and monitored Blockchain Full Nodes for gaming projects</li>
+                        <li>Wrote and deployed smart contracts (Solidity, Web3) for NFT projects</li>
+                        <li>Managed game services using AWS ECS and implemented CI/CD with Jenkins and GitLab CI</li>
+                        <li>Built and maintained infrastructure for REALREALM and ORBITAU projects</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Senior DevOps</h3>
+                    <div class="company">VUI Vietnam Company</div>
+                    <div class="duration">April 2021 - June 2022</div>
+                    <ul>
+                        <li>Architected infrastructure aligned with AWS Well-Architected Framework</li>
+                        <li>Deployed and monitored microservices for TapTap project using Kubernetes</li>
+                        <li>Configured VPN (Pritunl) for remote work support</li>
+                        <li>Developed ETL pipelines for data team using AWS Lambda</li>
+                        <li>Implemented CI/CD pipelines for iOS and Android applications</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Senior DevOps / Solution Architect</h3>
+                    <div class="company">HDWebsoft Company (Outsourcing)</div>
+                    <div class="duration">March 2019 - April 2021</div>
+                    <ul>
+                        <li>Designed and deployed microservices architecture for multiple client projects</li>
+                        <li>Set up Python (PyPI) and NPM registries using pypiserver and Verdaccio</li>
+                        <li>Deployed applications using Google Cloud Functions and customized Helm charts</li>
+                        <li>Managed databases (PostgreSQL, Elasticsearch, MongoDB) and Redis clusters</li>
+                        <li>Utilized various AWS services including Lambda, API Gateway, and EKS</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>FullStack Developer & DevOps</h3>
+                    <div class="company">Vzota Company (now Verichains - Blockchain Security Audit)</div>
+                    <div class="duration">March 2016 - March 2019</div>
+                    <ul>
+                        <li>Developed full-stack applications using PHP (Laravel), Node.js, Golang, and Vue.js</li>
+                        <li>Deployed applications to GCP using Kubernetes (GKE) and Helm charts</li>
+                        <li>Built iOS and Android applications using React Native for VWallet blockchain app</li>
+                        <li>Implemented monitoring solutions using Grafana and Prometheus</li>
+                        <li>Managed cloud infrastructure on Google Cloud Platform</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Java Backend Developer</h3>
+                    <div class="company">The Korrin Company</div>
+                    <div class="duration">June 2014 - March 2016</div>
+                    <ul>
+                        <li>Developed backend systems using Java Core with Redis and MySQL</li>
+                        <li>Collaborated with front-end developers to create functional web applications</li>
+                        <li>Wrote clean, maintainable code following best practices</li>
+                        <li>Worked on Piano Marvel and Golftec projects</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Education & Certifications Section -->
+<section id="certifications">
+    <div class="container">
+        <h2>Education</h2>
+        <div class="certifications">
+            <div class="cert-item">
+                <div class="cert-icon"><i class="fas fa-graduation-cap"></i></div>
+                <h3>Bachelor of Computer Engineering</h3>
+                <p>Ho Chi Minh City University of Technology (Bach Khoa HCM)</p>
+                <p style="margin-top: 0.5rem; color: var(--gray); font-size: 0.85rem;">Major: System and Network • 2014</p>
+            </div>
+            <div class="cert-item">
+                <div class="cert-icon"><i class="fas fa-network-wired"></i></div>
+                <h3>CCNA Certified</h3>
+                <p>Cisco Certified Network Associate</p>
+                <p style="margin-top: 0.5rem; color: var(--gray); font-size: 0.85rem;">Networking Fundamentals</p>
+            </div>
+            <div class="cert-item">
+                <div class="cert-icon"><i class="fab fa-aws"></i></div>
+                <h3>AWS Expertise</h3>
+                <p>Amazon Web Services</p>
+                <p style="margin-top: 0.5rem; color: var(--gray); font-size: 0.85rem;">VPC, ECS, EKS, Lambda, RDS, CloudFormation</p>
+            </div>
+            <div class="cert-item">
+                <div class="cert-icon"><i class="fas fa-dharmachakra"></i></div>
+                <h3>Kubernetes Expert</h3>
+                <p>Production K8s Deployments</p>
+                <p style="margin-top: 0.5rem; color: var(--gray); font-size: 0.85rem;">Kubeadm, EKS, GKE, Helm, Rancher</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2026 Phuoc Le. All rights reserved.</p>
+    <p>Senior DevOps Engineer | 12+ Years Experience | Available for Collaboration</p>
+    <div class="social-links">
+        <a href="tel:+84906682791" target="_blank" title="Phone"><i class="fas fa-phone"></i></a>
+        <a href="mailto:huuphuoc2791@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://linkedin.com/in/huuphuoc2791" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/phuoc-le" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+    </div>
+</footer>
+
+<!-- Scroll to Top Button -->
+<div class="scroll-top" id="scrollTop">
+    <i class="fas fa-arrow-up"></i>
+</div>
+
+<script>
+    // Scroll to top functionality
+    const scrollTop = document.getElementById('scrollTop');
+
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            scrollTop.classList.add('visible');
+        } else {
+            scrollTop.classList.remove('visible');
+        }
+    });
+
+    scrollTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Animate skill bars on scroll
+    const observerOptions = {
+        threshold: 0.5,
+        rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const progressBars = entry.target.querySelectorAll('.skill-progress');
+                progressBars.forEach(bar => {
+                    const width = bar.style.width;
+                    bar.style.width = '0';
+                    setTimeout(() => {
+                        bar.style.width = width;
+                    }, 100);
+                });
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.skill-category').forEach(category => {
+        observer.observe(category);
+    });
+
+    // Mobile menu toggle (basic implementation)
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navUl = document.querySelector('nav ul');
+
+    menuToggle.addEventListener('click', () => {
+        navUl.style.display = navUl.style.display === 'flex' ? 'none' : 'flex';
+    });
+</script>
+</body>
+</html>
