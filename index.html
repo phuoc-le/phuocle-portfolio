@@ -320,7 +320,7 @@
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 3rem;
             text-align: center;
         }
@@ -355,6 +355,10 @@
             color: var(--gray);
             text-transform: uppercase;
             letter-spacing: 1px;
+        }
+
+        .stat-content {
+            display: block;
         }
 
         /* Container */
@@ -1102,15 +1106,37 @@
 
             .stats-grid {
                 grid-template-columns: 1fr 1fr;
-                gap: 1.5rem;
+                gap: 1rem;
+            }
+
+            .stat-item {
+                display: flex;
+                align-items: center;
+                gap: 0.8rem;
+                background: rgba(15, 23, 42, 0.5);
+                padding: 1rem 1.2rem;
+                border-radius: 12px;
+                border: 1px solid rgba(14, 165, 233, 0.2);
+                text-align: left;
+            }
+
+            .stat-item i {
+                font-size: 1.5rem;
+                margin-bottom: 0;
             }
 
             .stat-number {
-                font-size: 2rem;
+                font-size: 1.8rem;
+                margin-bottom: 0;
             }
 
             .stat-label {
-                font-size: 0.85rem;
+                font-size: 0.7rem;
+            }
+
+            .stat-content {
+                display: flex;
+                flex-direction: column;
             }
 
             /* About section */
@@ -1388,23 +1414,31 @@
     <div class="stats-grid">
         <div class="stat-item">
             <i class="fas fa-briefcase"></i>
-            <div class="stat-number">12+</div>
-            <div class="stat-label">Years Experience</div>
+            <div class="stat-content">
+                <div class="stat-number">12+</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
         </div>
         <div class="stat-item">
             <i class="fas fa-server"></i>
-            <div class="stat-number">15+</div>
-            <div class="stat-label">Major Projects</div>
+            <div class="stat-content">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Major Projects</div>
+            </div>
         </div>
         <div class="stat-item">
             <i class="fas fa-check-circle"></i>
-            <div class="stat-number">99.99%</div>
-            <div class="stat-label">Uptime SLA</div>
+            <div class="stat-content">
+                <div class="stat-number">99.99%</div>
+                <div class="stat-label">Uptime SLA</div>
+            </div>
         </div>
         <div class="stat-item">
             <i class="fas fa-rocket"></i>
-            <div class="stat-number">7</div>
-            <div class="stat-label">Companies Served</div>
+            <div class="stat-content">
+                <div class="stat-number">7</div>
+                <div class="stat-label">Companies Served</div>
+            </div>
         </div>
     </div>
 </div>
