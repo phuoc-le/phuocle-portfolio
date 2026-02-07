@@ -573,21 +573,33 @@
         .tech-icon-item.monitoring-icon { border-color: rgba(244, 104, 0, 0.3); }
         .tech-icon-item.monitoring-icon:hover { border-color: #F46800; box-shadow: 0 20px 40px rgba(244, 104, 0, 0.5); }
 
-        .tech-icon-item.azure-icon i {
-            background: linear-gradient(135deg, #0078D4 0%, #00BCF2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .tech-icon-item.azure-icon img {
+            width: 3.5rem;
+            height: 3.5rem;
             filter: drop-shadow(0 0 15px rgba(0, 120, 212, 0.7));
         }
         .tech-icon-item.azure-icon { border-color: rgba(0, 120, 212, 0.3); }
         .tech-icon-item.azure-icon:hover { border-color: #0078D4; box-shadow: 0 20px 40px rgba(0, 120, 212, 0.5); }
 
-        .tech-icon-item.gcp-icon i {
-            background: linear-gradient(135deg, #4285F4 0%, #34A853 50%, #FBBC05 75%, #EA4335 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        /* Azure icon for tech-tag */
+        .azure-icon-small {
+            width: 14px;
+            height: 14px;
+            vertical-align: middle;
+            margin-right: 2px;
+        }
+
+        /* GCP icon for tech-tag */
+        .gcp-icon-small {
+            width: 14px;
+            height: 14px;
+            vertical-align: middle;
+            margin-right: 2px;
+        }
+
+        .tech-icon-item.gcp-icon img {
+            width: 3.5rem;
+            height: 3.5rem;
             filter: drop-shadow(0 0 15px rgba(66, 133, 244, 0.7));
         }
         .tech-icon-item.gcp-icon { border-color: rgba(66, 133, 244, 0.3); }
@@ -1558,8 +1570,8 @@
             <div class="tech-icon-item linux-icon" title="Linux"><i class="fab fa-linux"></i></div>
             <div class="tech-icon-item terraform-icon" title="Terraform"><i class="fas fa-cube"></i></div>
             <div class="tech-icon-item monitoring-icon" title="Monitoring"><i class="fas fa-chart-line"></i></div>
-            <div class="tech-icon-item azure-icon" title="Microsoft Azure"><i class="fab fa-microsoft"></i></div>
-            <div class="tech-icon-item gcp-icon" title="Google Cloud"><i class="fas fa-cloud"></i></div>
+            <div class="tech-icon-item azure-icon" title="Microsoft Azure"><img src="assets/images/azure-logo.svg" alt="Azure"></div>
+            <div class="tech-icon-item gcp-icon" title="Google Cloud"><img src="assets/images/gcp-logo.svg" alt="GCP"></div>
         </div>
     </div>
 </section>
@@ -1828,9 +1840,9 @@
             <div class="project-card">
                 <h3><i class="fas fa-wallet"></i> Herond Browser - Web3 Blockchain Wallet</h3>
                 <div class="tech-stack">
-                    <span class="tech-tag"><i class="fas fa-cloud"></i> GCP</span>
+                    <span class="tech-tag"><img class="gcp-icon-small" src="assets/images/gcp-logo.svg" alt="GCP"> GCP</span>
                     <span class="tech-tag"><i class="fab fa-aws"></i> AWS</span>
-                    <span class="tech-tag"><i class="fab fa-microsoft"></i> Azure</span>
+                    <span class="tech-tag"><img class="azure-icon-small" src="assets/images/azure-logo.svg" alt="Azure"> Azure</span>
                     <span class="tech-tag"><i class="fas fa-cube"></i> Terraform/OpenTofu</span>
                     <span class="tech-tag"><i class="fas fa-dharmachakra"></i> Kubernetes</span>
                     <span class="tech-tag"><i class="fab fa-github"></i> GitHub Actions</span>
@@ -1904,7 +1916,7 @@
                 <h3><i class="fas fa-gift"></i> TapTap - Comprehensive Enterprise Loyalty Solution</h3>
                 <div class="tech-stack">
                     <span class="tech-tag"><i class="fab fa-aws"></i> AWS</span>
-                    <span class="tech-tag"><i class="fas fa-cloud"></i> GCP</span>
+                    <span class="tech-tag"><img class="gcp-icon-small" src="assets/images/gcp-logo.svg" alt="GCP"> GCP</span>
                     <span class="tech-tag"><i class="fas fa-dharmachakra"></i> Kubernetes</span>
                     <span class="tech-tag"><i class="fab fa-gitlab"></i> GitLab CI</span>
                     <span class="tech-tag"><i class="fab fa-aws"></i> CodeCommit</span>
@@ -1931,7 +1943,7 @@
             <div class="project-card">
                 <h3><i class="fas fa-wallet"></i> VWallet - Blockchain Wallet App</h3>
                 <div class="tech-stack">
-                    <span class="tech-tag"><i class="fas fa-cloud"></i> GCP</span>
+                    <span class="tech-tag"><img class="gcp-icon-small" src="assets/images/gcp-logo.svg" alt="GCP"> GCP</span>
                     <span class="tech-tag"><i class="fas fa-dharmachakra"></i> Kubernetes</span>
                     <span class="tech-tag"><i class="fab fa-github"></i> GitHub Actions</span>
                     <span class="tech-tag"><i class="fab fa-ethereum"></i> Blockchain</span>
@@ -1952,7 +1964,7 @@
             <div class="project-card">
                 <h3><i class="fab fa-amazon"></i> CBPO - Amazon Product Analytics</h3>
                 <div class="tech-stack">
-                    <span class="tech-tag"><i class="fas fa-cloud"></i> GCP</span>
+                    <span class="tech-tag"><img class="gcp-icon-small" src="assets/images/gcp-logo.svg" alt="GCP"> GCP</span>
                     <span class="tech-tag"><i class="fas fa-dharmachakra"></i> Kubernetes</span>
                     <span class="tech-tag"><i class="fab fa-gitlab"></i> GitLab CI</span>
                     <span class="tech-tag"><i class="fab fa-python"></i> Django</span>
