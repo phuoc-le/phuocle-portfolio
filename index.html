@@ -60,12 +60,20 @@
         }
 
         nav .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            background: var(--gradient-alt);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            display: flex;
+            align-items: center;
+        }
+
+        nav .logo img {
+            height: 60px;
+            width: auto;
+            filter: invert(1) brightness(1.2);
+            transition: all 0.3s;
+        }
+
+        nav .logo img:hover {
+            filter: invert(1) brightness(1.5) drop-shadow(0 0 10px rgba(14, 165, 233, 0.8));
+            transform: scale(1.05);
         }
 
         nav ul {
@@ -1129,7 +1137,7 @@
 <!-- Navigation -->
 <nav>
     <div class="container">
-        <div class="logo">PL</div>
+        <div class="logo"><img src="assets/images/logo.png" alt="Phuoc Le"></div>
         <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
