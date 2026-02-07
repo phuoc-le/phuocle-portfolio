@@ -57,6 +57,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative;
         }
 
         nav .logo {
@@ -1066,10 +1067,44 @@
         @media (max-width: 768px) {
             nav ul {
                 display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(15, 23, 42, 0.98);
+                flex-direction: column;
+                padding: 1rem 0;
+                border-top: 1px solid rgba(14, 165, 233, 0.2);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            nav ul li {
+                text-align: center;
+                padding: 0.8rem 0;
+            }
+
+            nav ul li a {
+                font-size: 1rem;
             }
 
             .menu-toggle {
                 display: flex;
+            }
+
+            .menu-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
             }
 
             nav .logo img {
@@ -2166,7 +2201,16 @@
     const navUl = document.querySelector('nav ul');
 
     menuToggle.addEventListener('click', () => {
-        navUl.style.display = navUl.style.display === 'flex' ? 'none' : 'flex';
+        navUl.classList.toggle('show');
+        menuToggle.classList.toggle('active');
+    });
+
+    // Close menu when clicking a link
+    document.querySelectorAll('nav ul li a').forEach(link => {
+        link.addEventListener('click', () => {
+            navUl.classList.remove('show');
+            menuToggle.classList.remove('active');
+        });
     });
 </script>
 </body>
