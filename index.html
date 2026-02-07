@@ -1194,38 +1194,69 @@
             }
 
             /* Timeline */
+            .timeline {
+                margin: 1rem 0;
+            }
+
             .timeline::before {
-                left: 20px;
+                display: none;
             }
 
             .timeline-item {
                 width: 100%;
-                padding-left: 50px;
-                padding-right: 0;
+                padding: 0;
+                margin-bottom: 1rem;
                 text-align: left;
             }
 
             .timeline-item:nth-child(even) {
-                padding-left: 50px;
-                padding-right: 0;
+                padding: 0;
                 text-align: left;
             }
 
-            .timeline-item::before {
-                left: 11px;
-            }
-
+            .timeline-item::before,
             .timeline-item:nth-child(even)::before {
-                left: 11px;
-                right: auto;
+                display: none;
             }
 
             .timeline-content {
-                padding: 1.5rem;
+                padding: 1rem;
+                border-left: none;
+                border-radius: 10px;
+            }
+
+            .timeline-content:hover {
+                transform: none;
             }
 
             .timeline-content h3 {
-                font-size: 1.1rem;
+                font-size: 1rem;
+                margin-bottom: 0.3rem;
+            }
+
+            .timeline-content .company {
+                font-size: 0.9rem;
+                margin-bottom: 0.3rem;
+            }
+
+            .timeline-content .duration {
+                font-size: 0.8rem;
+                margin-bottom: 0.8rem;
+                display: inline-block;
+                background: var(--gradient-alt);
+                padding: 2px 8px;
+                border-radius: 5px;
+                color: white;
+            }
+
+            .timeline-content ul {
+                margin-top: 0.5rem;
+            }
+
+            .timeline-content li {
+                font-size: 0.85rem;
+                margin-bottom: 0.4rem;
+                padding-left: 1.2rem;
             }
 
             /* Certifications */
@@ -1294,16 +1325,24 @@
             }
 
             .stats-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
+                grid-template-columns: 1fr 1fr;
+                gap: 0.8rem;
             }
 
             .stat-item {
-                padding: 1.5rem;
+                padding: 0.8rem 1rem;
+            }
+
+            .stat-item i {
+                font-size: 1.3rem;
             }
 
             .stat-number {
-                font-size: 2.5rem;
+                font-size: 1.5rem;
+            }
+
+            .stat-label {
+                font-size: 0.65rem;
             }
 
             .tech-icon-item {
@@ -1319,12 +1358,33 @@
                 font-size: 1.5rem;
             }
 
-            .timeline-item {
-                padding-left: 40px;
+            .timeline-item,
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                padding: 0 !important;
+                margin-bottom: 0.8rem;
             }
 
-            .timeline-item:nth-child(even) {
-                padding-left: 40px;
+            .timeline-content {
+                padding: 0.8rem;
+            }
+
+            .timeline-content h3 {
+                font-size: 0.9rem;
+            }
+
+            .timeline-content .company {
+                font-size: 0.8rem;
+            }
+
+            .timeline-content .duration {
+                font-size: 0.7rem;
+            }
+
+            .timeline-content li {
+                font-size: 0.75rem;
+                margin-bottom: 0.3rem;
+                padding-left: 1rem;
             }
 
             .summary {
