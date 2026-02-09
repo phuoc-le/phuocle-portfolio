@@ -621,6 +621,31 @@
         .tech-icon-item.argocd-icon { border-color: rgba(239, 123, 69, 0.3); }
         .tech-icon-item.argocd-icon:hover { border-color: #EF7B45; box-shadow: 0 20px 40px rgba(239, 123, 69, 0.5); }
 
+        .tech-icon-item.nodejs-icon i {
+            color: #339933;
+            filter: drop-shadow(0 0 15px rgba(51, 153, 51, 0.7));
+        }
+        .tech-icon-item.nodejs-icon { border-color: rgba(51, 153, 51, 0.3); }
+        .tech-icon-item.nodejs-icon:hover { border-color: #339933; box-shadow: 0 20px 40px rgba(51, 153, 51, 0.5); }
+
+        .tech-icon-item.golang-icon img {
+            width: 3.5rem;
+            height: 3.5rem;
+            filter: drop-shadow(0 0 15px rgba(0, 173, 216, 0.7));
+        }
+        .tech-icon-item.golang-icon { border-color: rgba(0, 173, 216, 0.3); }
+        .tech-icon-item.golang-icon:hover { border-color: #00ADD8; box-shadow: 0 20px 40px rgba(0, 173, 216, 0.5); }
+
+        .tech-icon-item.java-icon i {
+            background: linear-gradient(135deg, #E76F00 0%, #5382A1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 15px rgba(231, 111, 0, 0.7));
+        }
+        .tech-icon-item.java-icon { border-color: rgba(231, 111, 0, 0.3); }
+        .tech-icon-item.java-icon:hover { border-color: #E76F00; box-shadow: 0 20px 40px rgba(231, 111, 0, 0.5); }
+
         /* Skills */
         .skills-grid {
             display: grid;
@@ -841,7 +866,7 @@
         /* Experience Timeline */
         .timeline {
             position: relative;
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 3rem auto;
         }
 
@@ -850,97 +875,207 @@
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            width: 4px;
+            width: 3px;
             height: 100%;
-            background: var(--gradient-alt);
+            background: linear-gradient(180deg, var(--primary) 0%, var(--secondary) 50%, var(--accent) 100%);
+            border-radius: 3px;
         }
 
         .timeline-item {
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
             position: relative;
-            width: calc(50% - 40px);
+            width: calc(50% - 50px);
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .timeline-item:nth-child(1) { animation-delay: 0.1s; }
+        .timeline-item:nth-child(2) { animation-delay: 0.2s; }
+        .timeline-item:nth-child(3) { animation-delay: 0.3s; }
+        .timeline-item:nth-child(4) { animation-delay: 0.4s; }
+        .timeline-item:nth-child(5) { animation-delay: 0.5s; }
+        .timeline-item:nth-child(6) { animation-delay: 0.6s; }
+        .timeline-item:nth-child(7) { animation-delay: 0.7s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .timeline-item:nth-child(odd) {
             margin-left: auto;
-            padding-left: 40px;
+            padding-left: 50px;
         }
 
         .timeline-item:nth-child(even) {
             text-align: right;
-            padding-right: 40px;
+            padding-right: 50px;
         }
 
         .timeline-item::before {
             content: '';
             position: absolute;
-            width: 20px;
-            height: 20px;
-            background: var(--gradient-alt);
+            width: 18px;
+            height: 18px;
+            background: var(--dark);
+            border: 3px solid var(--primary);
             border-radius: 50%;
-            box-shadow: 0 0 20px rgba(14, 165, 233, 0.6);
-            top: 0;
+            top: 25px;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: rgba(14, 165, 233, 0.2);
+            border-radius: 50%;
+            top: 19px;
+            z-index: 1;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.3); opacity: 0; }
         }
 
         .timeline-item:nth-child(odd)::before {
-            left: -10px;
+            left: -9px;
+        }
+
+        .timeline-item:nth-child(odd)::after {
+            left: -15px;
         }
 
         .timeline-item:nth-child(even)::before {
-            right: -10px;
+            right: -9px;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            right: -15px;
+        }
+
+        .timeline-item:hover::before {
+            background: var(--primary);
+            transform: scale(1.2);
+            box-shadow: 0 0 20px var(--primary);
         }
 
         .timeline-content {
-            background: rgba(15, 23, 42, 0.5);
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(30, 41, 59, 0.6) 100%);
             padding: 2rem;
-            border-radius: 15px;
-            border: 1px solid rgba(14, 165, 233, 0.2);
-            transition: all 0.3s;
+            border-radius: 20px;
+            border: 1px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.5) 0%, rgba(139, 92, 246, 0.3) 50%, rgba(236, 72, 153, 0.3) 100%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
         }
 
         .timeline-content:hover {
-            border-color: var(--primary);
-            box-shadow: 0 10px 40px rgba(14, 165, 233, 0.3);
-            transform: scale(1.02);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(14, 165, 233, 0.2), 0 0 60px rgba(139, 92, 246, 0.1);
+        }
+
+        .timeline-content:hover::before {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--accent) 100%);
         }
 
         .timeline-content h3 {
             color: var(--light);
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content h3 {
+            text-align: right;
         }
 
         .timeline-content .company {
-            color: var(--primary);
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
+            color: transparent;
+            background: var(--gradient-alt);
+            -webkit-background-clip: text;
+            background-clip: text;
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .timeline-content .company::before {
+            content: '🏢';
+            font-size: 1rem;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content .company {
+            justify-content: flex-end;
         }
 
         .timeline-content .duration {
-            color: var(--gray);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
+            display: inline-block;
+            background: var(--gradient-alt);
+            color: white;
+            font-size: 0.8rem;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            margin-bottom: 1.25rem;
             font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
         }
 
         .timeline-content ul {
             list-style: none;
             text-align: left;
+            margin-top: 1rem;
         }
 
         .timeline-content li {
             color: var(--gray);
             margin-bottom: 0.75rem;
-            padding-left: 1.5rem;
+            padding-left: 1.75rem;
             position: relative;
+            line-height: 1.6;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content li:hover {
+            color: var(--light);
+            transform: translateX(5px);
         }
 
         .timeline-content li::before {
-            content: '→';
+            content: '▹';
             position: absolute;
             left: 0;
             color: var(--primary);
+            font-weight: bold;
+            font-size: 1.1rem;
         }
 
         /* Certifications */
@@ -1264,68 +1399,90 @@
 
             /* Timeline */
             .timeline {
-                margin: 1rem 0;
+                margin: 1.5rem 0;
             }
 
             .timeline::before {
-                display: none;
+                left: 15px;
+                width: 2px;
             }
 
             .timeline-item {
                 width: 100%;
-                padding: 0;
-                margin-bottom: 1rem;
-                text-align: left;
+                padding: 0 0 0 45px !important;
+                margin-bottom: 1.5rem;
+                text-align: left !important;
             }
 
             .timeline-item:nth-child(even) {
-                padding: 0;
-                text-align: left;
+                padding: 0 0 0 45px !important;
+                text-align: left !important;
             }
 
-            .timeline-item::before,
-            .timeline-item:nth-child(even)::before {
-                display: none;
+            .timeline-item::before {
+                left: 6px !important;
+                right: auto !important;
+                width: 14px;
+                height: 14px;
+                top: 20px;
+            }
+
+            .timeline-item::after {
+                left: 0 !important;
+                right: auto !important;
+                width: 24px;
+                height: 24px;
+                top: 15px;
             }
 
             .timeline-content {
-                padding: 1rem;
-                border-left: none;
-                border-radius: 10px;
+                padding: 1.25rem;
+                border-radius: 15px;
             }
 
             .timeline-content:hover {
-                transform: none;
+                transform: translateY(-3px);
             }
 
             .timeline-content h3 {
-                font-size: 1rem;
-                margin-bottom: 0.3rem;
+                font-size: 1.1rem;
+                margin-bottom: 0.5rem;
+                text-align: left !important;
             }
 
             .timeline-content .company {
+                font-size: 0.95rem;
+                margin-bottom: 0.5rem;
+                justify-content: flex-start !important;
+            }
+
+            .timeline-content .company::before {
                 font-size: 0.9rem;
-                margin-bottom: 0.3rem;
             }
 
             .timeline-content .duration {
-                font-size: 0.8rem;
-                margin-bottom: 0.8rem;
-                display: inline-block;
-                background: var(--gradient-alt);
-                padding: 2px 8px;
-                border-radius: 5px;
-                color: white;
+                font-size: 0.7rem;
+                padding: 0.35rem 0.75rem;
+                margin-bottom: 1rem;
             }
 
             .timeline-content ul {
-                margin-top: 0.5rem;
+                margin-top: 0.75rem;
             }
 
             .timeline-content li {
                 font-size: 0.85rem;
-                margin-bottom: 0.4rem;
-                padding-left: 1.2rem;
+                margin-bottom: 0.5rem;
+                padding-left: 1.5rem;
+            }
+
+            .timeline-content li:hover {
+                transform: none;
+            }
+
+            .timeline-item:nth-child(even) .timeline-content h3,
+            .timeline-item:nth-child(even) .timeline-content .company {
+                justify-content: flex-start !important;
             }
 
             /* Certifications */
@@ -1427,33 +1584,44 @@
                 font-size: 1.5rem;
             }
 
+            .timeline::before {
+                display: none;
+            }
+
             .timeline-item,
             .timeline-item:nth-child(odd),
             .timeline-item:nth-child(even) {
                 padding: 0 !important;
-                margin-bottom: 0.8rem;
+                margin-bottom: 1rem;
+            }
+
+            .timeline-item::before,
+            .timeline-item::after {
+                display: none;
             }
 
             .timeline-content {
-                padding: 0.8rem;
+                padding: 1rem;
+                border-radius: 12px;
             }
 
             .timeline-content h3 {
-                font-size: 0.9rem;
+                font-size: 1rem;
             }
 
             .timeline-content .company {
-                font-size: 0.8rem;
+                font-size: 0.85rem;
             }
 
             .timeline-content .duration {
-                font-size: 0.7rem;
+                font-size: 0.65rem;
+                padding: 0.3rem 0.6rem;
             }
 
             .timeline-content li {
-                font-size: 0.75rem;
-                margin-bottom: 0.3rem;
-                padding-left: 1rem;
+                font-size: 0.8rem;
+                margin-bottom: 0.4rem;
+                padding-left: 1.2rem;
             }
 
             .summary {
@@ -1582,19 +1750,28 @@
 
         <!-- Tech Icons Showcase -->
         <div class="tech-showcase">
+            <!-- Cloud Providers -->
             <div class="tech-icon-item aws-icon" title="AWS"><i class="fab fa-aws"></i></div>
+            <div class="tech-icon-item gcp-icon" title="Google Cloud"><img src="assets/images/gcp-logo.svg" alt="GCP"></div>
+            <div class="tech-icon-item azure-icon" title="Microsoft Azure"><img src="assets/images/azure-logo.svg" alt="Azure"></div>
+            <!-- Containers & Orchestration -->
             <div class="tech-icon-item docker-icon" title="Docker"><i class="fab fa-docker"></i></div>
             <div class="tech-icon-item k8s-icon" title="Kubernetes"><i class="fas fa-dharmachakra"></i></div>
-            <div class="tech-icon-item jenkins-icon" title="Jenkins"><i class="fab fa-jenkins"></i></div>
-            <div class="tech-icon-item gitlab-icon" title="GitLab"><i class="fab fa-gitlab"></i></div>
+            <!-- CI/CD -->
             <div class="tech-icon-item github-icon" title="GitHub"><i class="fab fa-github"></i></div>
-            <div class="tech-icon-item python-icon" title="Python"><i class="fab fa-python"></i></div>
-            <div class="tech-icon-item linux-icon" title="Linux"><i class="fab fa-linux"></i></div>
+            <div class="tech-icon-item gitlab-icon" title="GitLab"><i class="fab fa-gitlab"></i></div>
+            <div class="tech-icon-item jenkins-icon" title="Jenkins"><i class="fab fa-jenkins"></i></div>
+            <div class="tech-icon-item argocd-icon" title="ArgoCD"><img src="assets/images/argocd-logo.svg" alt="ArgoCD"></div>
+            <!-- IaC & Monitoring -->
             <div class="tech-icon-item terraform-icon" title="Terraform"><i class="fas fa-cube"></i></div>
             <div class="tech-icon-item monitoring-icon" title="Monitoring"><i class="fas fa-chart-line"></i></div>
-            <div class="tech-icon-item azure-icon" title="Microsoft Azure"><img src="assets/images/azure-logo.svg" alt="Azure"></div>
-            <div class="tech-icon-item gcp-icon" title="Google Cloud"><img src="assets/images/gcp-logo.svg" alt="GCP"></div>
-            <div class="tech-icon-item argocd-icon" title="ArgoCD"><img src="assets/images/argocd-logo.svg" alt="ArgoCD"></div>
+            <!-- Programming Languages -->
+            <div class="tech-icon-item python-icon" title="Python"><i class="fab fa-python"></i></div>
+            <div class="tech-icon-item nodejs-icon" title="Node.js"><i class="fab fa-node-js"></i></div>
+            <div class="tech-icon-item golang-icon" title="Golang"><img src="assets/images/golang-logo.svg" alt="Golang"></div>
+            <div class="tech-icon-item java-icon" title="Java"><i class="fab fa-java"></i></div>
+            <!-- OS -->
+            <div class="tech-icon-item linux-icon" title="Linux"><i class="fab fa-linux"></i></div>
         </div>
     </div>
 </section>
@@ -2086,7 +2263,7 @@
                         <li>Deployed and monitored Blockchain Full Nodes for gaming projects</li>
                         <li>Wrote and deployed smart contracts (Solidity, Web3) for NFT projects</li>
                         <li>Managed game services using AWS ECS and implemented CI/CD with Jenkins and GitLab CI</li>
-                        <li>Built and maintained infrastructure for REALREALM and ORBITAU projects</li>
+                        <li>Built and maintained infrastructure for REALREALM projects</li>
                     </ul>
                 </div>
             </div>
