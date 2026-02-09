@@ -855,12 +855,13 @@
         }
 
         .project-card li::before {
-            content: '▹';
+            content: '›';
             position: absolute;
             left: 0;
             color: var(--primary);
-            font-size: 1.5rem;
-            font-weight: bold;
+            font-size: 1.4rem;
+            font-weight: 700;
+            line-height: 1;
         }
 
         /* Experience Timeline */
@@ -1014,25 +1015,14 @@
         }
 
         .timeline-content .company {
-            color: transparent;
-            background: var(--gradient-alt);
-            -webkit-background-clip: text;
-            background-clip: text;
-            font-size: 1.15rem;
-            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.1rem;
+            font-weight: 600;
             margin-bottom: 0.75rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .timeline-content .company::before {
-            content: '🏢';
-            font-size: 1rem;
         }
 
         .timeline-item:nth-child(even) .timeline-content .company {
-            justify-content: flex-end;
+            text-align: right;
         }
 
         .timeline-content .duration {
@@ -1070,12 +1060,13 @@
         }
 
         .timeline-content li::before {
-            content: '▹';
+            content: '›';
             position: absolute;
             left: 0;
             color: var(--primary);
-            font-weight: bold;
-            font-size: 1.1rem;
+            font-size: 1.4rem;
+            font-weight: 700;
+            line-height: 1;
         }
 
         /* Certifications */
@@ -1298,16 +1289,6 @@
                 font-size: 1rem;
             }
 
-            .cta-buttons {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .cta-buttons .btn {
-                width: 100%;
-                text-align: center;
-            }
-
             .stats-grid {
                 grid-template-columns: 1fr 1fr;
                 gap: 1rem;
@@ -1453,11 +1434,7 @@
             .timeline-content .company {
                 font-size: 0.95rem;
                 margin-bottom: 0.5rem;
-                justify-content: flex-start !important;
-            }
-
-            .timeline-content .company::before {
-                font-size: 0.9rem;
+                text-align: left !important;
             }
 
             .timeline-content .duration {
@@ -1492,16 +1469,6 @@
             }
 
             .cert-item {
-                padding: 1.5rem;
-            }
-
-            /* Contact */
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .contact-item {
                 padding: 1.5rem;
             }
 
@@ -2061,7 +2028,7 @@
                     <li>Built data pipeline for browser wallet metrics and analytics using BigQuery and Dataflow</li>
                     <li>Migrated Windows app code signing from hardware token to Cloud HSM for scalable CI/CD automation</li>
                     <li>Integrated AI capabilities into the system to enhance product features and automation</li>
-                    <li>Managed Kubernetes clusters on GKE with GitOps workflow using ArgoCD/Flux</li>
+                    <li>Managed Kubernetes clusters on GKE, AKS with GitOps workflow using ArgoCD/Flux</li>
                 </ul>
             </div>
 
@@ -2216,13 +2183,13 @@
                     <div class="company">HerondLabs Company</div>
                     <div class="duration">March 2025 - Present</div>
                     <ul>
-                        <li>Lead DevOps initiatives across multi-cloud environment (GCP 40%, AWS 30%, Azure 30%)</li>
+                        <li>Lead DevOps initiatives across multi-cloud environment (GCP 40%, AWS 10%, Azure 50%)</li>
                         <li>Design and implement CI/CD pipelines for multi-platform browser builds (Windows, Mac, iOS, Android) using GitHub Actions</li>
-                        <li>Successfully executed complete cloud migration from Azure to GCP infrastructure with zero downtime</li>
+                        <li>Successfully executed complete cloud migration from Azure to GCP infrastructure</li>
                         <li>Led database migration project from MS SQL Server to PostgreSQL, including schema conversion and data migration strategies</li>
                         <li>Implement security hardening across all infrastructure layers including network security, secrets management, and compliance controls</li>
                         <li>Design and deploy cloud infrastructure using Terraform/Tofu and Ansible for Web3 browser applications</li>
-                        <li>Manage Kubernetes clusters on GKE and EKS with production-grade configurations and auto-scaling</li>
+                        <li>Manage Kubernetes clusters on GKE and AKS with production-grade configurations and auto-scaling</li>
                         <li>Implement comprehensive data infrastructure with BigQuery, Looker, and Cloud SQL (PostgreSQL)</li>
                         <li>Configure event-driven architecture using RabbitMQ, PubSub, and AWS SES for real-time processing</li>
                         <li>Establish monitoring and observability solutions using Grafana, Prometheus, and Lens for multi-cloud environments</li>
@@ -2373,12 +2340,12 @@
 
 <!-- Footer -->
 <footer>
-    <p>&copy; 2026 Phuoc Le. All rights reserved.</p>
-    <p>Senior DevOps Engineer | 7+ Years Experience | Available for Collaboration</p>
+    <p>&copy; <span id="currentYear">2026</span> Phuoc Le. All rights reserved.</p>
+    <p>Senior DevOps Engineer | 12+ Years IT Experience | 7+ Years DevOps</p>
     <div class="social-links">
-        <a href="tel:+84886682791" target="_blank" title="Phone"><i class="fas fa-phone"></i></a>
+        <a href="tel:+84886682791" title="Phone"><i class="fas fa-phone"></i></a>
         <a href="https://zalo.me/84886682791" target="_blank" title="Zalo"><img src="assets/images/zalo-logo.svg" alt="Zalo" class="social-icon-img"></a>
-        <a href="mailto:huuphuoc2791@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a>
+        <a href="mailto:huuphuoc2791@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
         <a href="https://linkedin.com/in/huuphuoc2791" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
         <a href="https://github.com/phuoc-le" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
         <a href="https://teams.microsoft.com/l/chat/0/0?users=huuphuoc2791@gmail.com" target="_blank" title="Microsoft Teams"><img src="assets/images/teams-logo.svg" alt="Teams" class="social-icon-img"></a>
@@ -2391,6 +2358,9 @@
 </div>
 
 <script>
+    // Auto-update copyright year
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
     // Scroll to top functionality
     const scrollTop = document.getElementById('scrollTop');
 
