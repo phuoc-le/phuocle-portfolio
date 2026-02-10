@@ -1223,9 +1223,33 @@
             .projects-grid {
                 grid-template-columns: 1fr;
             }
+
             .tech-icon-item.golang-icon img {
                 width: 2.5rem;
                 height: 2.5rem;
+            }
+
+            /* Timeline tablet fix */
+            .timeline-item {
+                width: calc(50% - 30px);
+            }
+
+            .timeline-item:nth-child(odd) {
+                padding-left: 30px;
+            }
+
+            .timeline-item:nth-child(odd)::before {
+                left: -12px;
+                right: auto;
+            }
+
+            .timeline-item:nth-child(even) {
+                padding-right: 30px;
+            }
+
+            .timeline-item:nth-child(even)::before {
+                right: -8px;
+                left: auto;
             }
         }
 
@@ -1440,7 +1464,7 @@
             }
 
             .timeline-item::before {
-                left: 4px !important;
+                left: 8px !important;
                 right: auto !important;
                 width: 14px;
                 height: 14px;
